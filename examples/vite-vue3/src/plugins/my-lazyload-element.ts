@@ -1,5 +1,5 @@
-import MyLazyLoadElements from '../../../../src/my-lazyload-elements';
-import type { MyLazyLoadElementsOptions, MyLazyLoadElementsCallbacks } from '../../../../src/my-lazyload-elements';
+import MyLazyLoadElements from 'my-lazyload-elements';
+import type { MyLazyLoadElementsOptions, MyLazyLoadElementsCallbacks } from 'my-lazyload-elements';
 import type { App, DirectiveBinding, VNode } from 'vue';
 
 /**

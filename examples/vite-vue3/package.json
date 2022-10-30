@@ -16,6 +16,7 @@
     "@rushstack/eslint-patch": "^1.2.0",
     "@vue/eslint-config-typescript": "^11.0.2",
     "express": "^4.18.2",
+    "my-lazyload-elements": "^1.0.0",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
   },
