@@ -1,10 +1,10 @@
 {
-  "name": "my-lazyload-element",
+  "name": "my-lazyload-elements",
   "version": "1.0.0",
   "description": "lazyload",
-  "main": "./dist/my-lazyload-element.js",
-  "module": "./dist/es/my-lazyload-element.js",
-  "types": "./dist/my-lazyload-element.d.ts",
+  "main": "./dist/my-lazyload-elements.js",
+  "module": "./dist/es/my-lazyload-elements.js",
+  "types": "./dist/my-lazyload-elements.d.ts",
   "source": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,24 +13,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/19911121/my-lazyload-element.git"
+    "url": "git+https://github.com/19911121/my-lazyload-elements.git"
   },
   "keywords": [
-    "mylazyloadelement",
-    "my-lazyload-element",
+    "mylazyloadelements",
+    "my-lazyload-elements",
     "lazyload",
-    "lazyloadelement",
-    "lazyload-element",
+    "lazyloadelements",
+    "lazyload-elements",
     "vue-lazyload",
-    "vue-lazyloadelement",
-    "vue-lazyload-element"
+    "vue-lazyloadelements",
+    "vue-lazyload-elements"
   ],
   "author": "19911121-minsoo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/19911121/my-lazyload-element/issues"
+    "url": "https://github.com/19911121/my-lazyload-elements/issues"
   },
-  "homepage": "https://github.com/19911121/my-lazyload-element#readme",
+  "homepage": "https://github.com/19911121/my-lazyload-elements#readme",
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
