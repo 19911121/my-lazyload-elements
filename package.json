@@ -1,0 +1,42 @@
+{
+  "name": "my-lazyload-element",
+  "version": "1.0.0",
+  "description": "lazyload",
+  "main": "./dist/my-lazyload-element.js",
+  "module": "./dist/es/my-lazyload-element.js",
+  "types": "./dist/my-lazyload-element.d.ts",
+  "source": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/19911121/my-lazyload-element.git"
+  },
+  "keywords": [
+    "mylazyloadelement",
+    "my-lazyload-element",
+    "lazyload",
+    "lazyloadelement",
+    "lazyload-element",
+    "vue-lazyload",
+    "vue-lazyloadelement",
+    "vue-lazyload-element"
+  ],
+  "author": "19911121-minsoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/19911121/my-lazyload-element/issues"
+  },
+  "homepage": "https://github.com/19911121/my-lazyload-element#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/register": "^7.18.9",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "csstype": "^3.1.1",
+    "gulp": "^4.0.2",
+    "rollup": "^3.2.3",
+    "tslib": "^2.4.0"
+  }
+}
