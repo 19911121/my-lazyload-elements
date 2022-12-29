@@ -1,6 +1,6 @@
 {
   "name": "my-lazyload-elements",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "lazyload",
   "main": "./dist/my-lazyload-elements.js",
   "module": "./dist/es/my-lazyload-elements.js",
