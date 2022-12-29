@@ -74,6 +74,9 @@ const setAttribute = (item: Item) => {
       loading(item);
 
       break;
+    // options
+    case 'once':
+      break;
     default:
       el.setAttribute(key, value);
 
@@ -88,7 +91,7 @@ const setAttribute = (item: Item) => {
  */
 const removeAttributes = (el: Element) => {
   for (const attr of el.attributes) {
-    if (attr.nodeName.startsWith(AttributePrefix) && dataSourceAttributeName !== attr.nodeName) {
+    if (attr.nodeName.startsWith(AttributePrefix)) {
       const key = attr.nodeName.replace(AttributePrefix, '');
       const value = el.getAttribute(attr.nodeName) ?? '';
       const item: Item = { el, key, value };
