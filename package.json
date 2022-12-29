@@ -1,11 +1,11 @@
 {
   "name": "my-lazyload-elements",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "lazyload",
   "main": "./dist/my-lazyload-elements.js",
   "module": "./dist/es/my-lazyload-elements.js",
   "types": "./dist/my-lazyload-elements.d.ts",
-  "source": "src/index.ts",
+  "source": "src/my-lazyload-elements.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
