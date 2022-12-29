@@ -26,7 +26,7 @@ const loading = (item: Item) => {
  * @param item {@link item}
  */
 const load = async (item: Item) => {
-  if (isImageItem(item)) imageLoad(item);
+  if (isImageItem(item)) await imageLoad(item);
   else item.el.setAttribute(item.key, item.value);
 };
 
