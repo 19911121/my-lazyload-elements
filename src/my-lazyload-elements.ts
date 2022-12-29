@@ -1,10 +1,8 @@
 import { ErrorState } from "./utils/error";
-import { load } from "./utils/load";
 import { makeResult } from "./utils/callbacks";
-import { Attributes, AttributeSuffixes, getSource, hasOnce } from "./utils/attributes";
+import { Attributes, hasOnce } from "./utils/attributes";
 import type { CallbackNameKey, CallbackResult, Callbacks, } from "./utils/callbacks";
 import type { ErrorStateKey } from "./utils/error";
-import type { Item } from "./utils/item";
 import { getTargetElements, hide, show } from "./utils/elements";
 
 type Options = IntersectionObserverInit;
@@ -52,7 +50,7 @@ export default class LazyLoadElement {
   }
 
   /**
-   * callbacks 등록
+   * callbacks 등록합니다.
    * 
    * @param callbacks 
    */
@@ -97,10 +95,10 @@ export default class LazyLoadElement {
    */
   private async show(el: Element, entry?: IntersectionObserverEntry, observer?: IntersectionObserver): Promise<void> {
     try {
-      show(el);
+      await show(el);
       
       if (observer && hasOnce(el)) {
-        observer.unobserve(el)
+        observer.unobserve(el);
         this.deleteAppliedElement(el);
       }
 
@@ -135,8 +133,6 @@ export default class LazyLoadElement {
   private hide(el: Element, entry?: IntersectionObserverEntry) {
     const showed = el.hasAttribute(Attributes.Show);
 
-    console.log('showed: ', showed, el);
-    
     hide(el);
 
     if (showed) this.callbacks.hide?.(makeResult(el, entry));
@@ -175,6 +171,7 @@ export default class LazyLoadElement {
       let eventName: CallbackNameKey;
 
       if (!this.observer) return;
+
       if (entry.isIntersecting) {
         if (this.isGroup(entry.target)) this.showGroup(entry.target, entry, this.observer);
         else this.show(entry.target, entry, this.observer);
@@ -216,7 +213,7 @@ export default class LazyLoadElement {
   }
   // #endregion
 
-  // #region targetElements
+  // #region applied elements
   /**
    * lazyload가 적용 되어 있는 요소 목록을 반환합니다.
    */
