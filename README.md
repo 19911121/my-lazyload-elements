@@ -15,7 +15,8 @@ npm i my-lazyload-elements
 - data-my-lazy-*
   - 요소가 보여지고 가려질 때 마다 *에 해당하는 속성 토글
   - ex) data-my-lazy-test="123" -> 요소 노출 시 <div test="123"></div>
-** image 전용 **
+
+**image 전용**
 - data-my-lazy-loading 
   - source 이미지가 불러와질 동안 표시 할 이미지
 
