@@ -1,5 +1,5 @@
-import MyLazyLoadElements from 'my-lazyload-elements';
-import type { MyLazyLoadElementsOptions, MyLazyLoadElementsCallbacks } from 'my-lazyload-elements';
+import MyLazyLoadElements from '../../../../src/my-lazyload-elements';
+import type { MyLazyLoadElementsOptions, MyLazyLoadElementsCallbacks } from '../../../../src/my-lazyload-elements';;
 import type { App, DirectiveBinding, VNode } from 'vue';
 
 /**
@@ -10,7 +10,7 @@ const createMyLazyLoadElements = (options?: MyLazyLoadElementsOptions, callbacks
 
   return {
     install(app: App) {
-      app.directive('mylazy', {
+      app.directive('my-lazy', {
         beforeMount(el: HTMLElement, binding: DirectiveBinding, vnode: VNode) {
           myLazyLoadElements = new MyLazyLoadElements(el, options, callbacks);
         },
