@@ -13,8 +13,14 @@ export default async function(serverContext?: ServerContext) {
 
   app.use(router);
   app.use(createMyLazyLoadElements({}, {
-    error(state, result?, error?) {
-      if (result?.element instanceof HTMLImageElement) result.element.src = './assets/logo.png';
+    error(error, result) {
+      if (result?.element instanceof HTMLImageElement) {
+        const errorImageSource = '/assets/logo.png';
+
+        result.element.src = errorImageSource;
+        
+        if (result.element.previousElementSibling) result.element.parentElement?.querySelectorAll('source').forEach(el => el.srcset = errorImageSource);
+      }
     },
   }));
 
