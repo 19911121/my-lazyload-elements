@@ -1,56 +1,31 @@
-declare const EventName: {
-    readonly Error: "error";
-    readonly Call: "call";
-    readonly Show: "show";
-    readonly Hide: "hide";
-};
-declare type EventNameKey = typeof EventName[keyof typeof EventName];
-declare const ErrorState: {
-    NotSupport: string;
-    MissingContainer: string;
-    InvalidContainerType: string;
-    LoadFail: string;
-};
-declare type ErrorStateKey = typeof ErrorState[keyof typeof ErrorState];
-interface Options {
-    root?: Element;
-    rootMargin?: string;
-    threshold?: number[];
-}
-interface LazyLoadElementResult {
-    element?: Element;
-    isIntersecting: boolean;
-    intersectionRatio: number;
-}
-interface Callbacks {
-    show?(result?: LazyLoadElementResult): void;
-    hide?(result?: LazyLoadElementResult): void;
-    call?(eventName: EventNameKey, result?: LazyLoadElementResult): void;
-    error?(state: ErrorStateKey, result?: LazyLoadElementResult, error?: unknown): void;
-}
+import { ErrorState } from "./utils/error";
+import type { CallbackNameKey, CallbackResult, Callbacks } from "./utils/callbacks";
+import type { ErrorStateKey } from "./utils/error";
+declare type Options = IntersectionObserverInit;
 export default class LazyLoadElement {
-    private readonly ActiveAttr;
-    private readonly ShowAttr;
-    private readonly HideAttr;
     private observer;
+    private observerOptions;
     private mutationObserver;
-    private debug;
-    private config;
     private callbacks;
     private appliedElements;
-    constructor(container: Element, options?: Options, callbacks?: Callbacks);
+    constructor(container: Element, options?: IntersectionObserverInit, callbacks?: Callbacks);
     dispose(): void;
     private init;
-    private getTargetElements;
-    private makeResult;
+    private setCallbacks;
+    private isGroup;
+    private showGroup;
     private show;
+    private hideGroup;
     private hide;
-    addObserve(container: Element): number;
+    addObserve(container: Element): void;
+    private observerHandler;
     private addMutationObserver;
     getAppliedElements(): Element[];
     getShowedElements(): Element[];
+    private addAppliedElements;
+    private addAppliedElement;
     private deleteAppliedElement;
-    private disposeAppliedElements;
+    private resetAppliedElements;
 }
-export { EventName as MyLazyLoadElementsEventName, ErrorState as MyLazyLoadElementsErrorState, };
-export type { EventNameKey as MyLazyLoadElementsEventNameKey, ErrorStateKey as MyLazyLoadElementsErrorStateKey, Options as MyLazyLoadElementsOptions, LazyLoadElementResult as MyLazyLoadElementsLazyLoadElementResult, Callbacks as MyLazyLoadElementsCallbacks };
+export { ErrorState as MyLazyLoadElementsErrorState, };
+export type { Options as MyLazyLoadElementsOptions, CallbackNameKey as MyLazyLoadElementsEventNameKey, ErrorStateKey as MyLazyLoadElementsErrorStateKey, CallbackResult as MyLazyLoadElementsLazyLoadElementResult, Callbacks as MyLazyLoadElementsCallbacks, };
