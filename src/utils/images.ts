@@ -1,20 +1,22 @@
 import { AttributePrefix, AttributeSuffixes } from "./attributes";
 import type { Item } from "./item";
-import type { Callbacks } from "./load";
 
 const load = (item: Item<HTMLImageElement>): Promise<void> => {
   const el = item.el;
   const loadingSrc = item.el.getAttribute(`${AttributePrefix}${AttributeSuffixes.Loading}`);
+  const hasSiblingSource = 'SOURCE' === item.el.previousElementSibling?.tagName;
   const hasLoadingSrc = !!loadingSrc;
-  const isLoading = hasLoadingSrc && (el.currentSrc.endsWith(loadingSrc) || !el.currentSrc);
-
+  const canLoading = !hasSiblingSource
+    && hasLoadingSrc
+    && (el.currentSrc.endsWith(loadingSrc) || !el.currentSrc);
+  const eventOptions: AddEventListenerOptions = {
+    once: true,
+  };
+   
   // source가 있는 경우 loading 사용 불가!
   return new Promise((resolve, reject) => {
-    if (isLoading) {
+    if (canLoading) {
       const image = new Image();
-      const eventOptions: AddEventListenerOptions = {
-        once: true,
-      };
       
       image.addEventListener('error', (e) => {
         reject(e);
@@ -29,9 +31,17 @@ const load = (item: Item<HTMLImageElement>): Promise<void> => {
       image.src = item.value;
     }
     else {
-      el.setAttribute(item.key, item.value);
+      if (hasLoadingSrc && hasSiblingSource) console.warn('source와 함께 사용 할 경우 loading은 사용하실 수 없습니다.');
 
-      resolve();
+      el.addEventListener('error', (e) => {
+        reject(e);
+      }, eventOptions);
+  
+      el.addEventListener('load', () => {
+        resolve();
+      }, eventOptions);
+
+      el.setAttribute(item.key, item.value);
     }
   });
 };
